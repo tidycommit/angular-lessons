@@ -10,7 +10,7 @@ With `withComponentInputBinding()` already on (from yesterday), an `input()` who
 // product-list.ts
 @Component({
   selector: 'app-product-list',
-  imports: [RouterLink],
+  imports: [RouterLink, CurrencyPipe],
   template: `
     <h2>Products</h2>
     <div class="sort">
@@ -20,7 +20,7 @@ With `withComponentInputBinding()` already on (from yesterday), an `input()` who
          [class.active]="sort() === 'name'">Name</a>
     </div>
     @for (p of sorted(); track p.name) {
-      <div class="card">{{ p.name }} — ${{ p.price }}</div>
+      <div class="card">{{ p.name }} — {{ p.price | currency:'USD' }}</div>
     }
   `,
 })
@@ -45,6 +45,6 @@ export class ProductList {
 
 ## On screen
 
-The address bar shows `localhost:4200/products?sort=price`. Under the "My Shop" nav (Products highlighted), a "Sort: Price" chip is active next to "Name", and three product cards list Notebook, Mug, and Lamp. Switch the chip to Name and the URL becomes `?sort=name` while the cards reorder alphabetically.
+The address bar shows `localhost:4200/products?sort=price`. Under the "My Shop" nav (Products highlighted), a "Sort: Price" chip is active next to "Name", and three product cards list Mug, Notebook, and Lamp, cheapest first. Switch the chip to Name and the URL becomes `?sort=name` while the cards reorder alphabetically.
 
 ![Query parameters mockup](../images/2026-10-13-query-parameters.jpg)
