@@ -31,6 +31,6 @@ export class FocusTimer implements OnInit, OnDestroy {
 
 ## On screen
 
-A phone with a red "Focus Timer" header and a white card titled "Ada's study session," showing a big counter (00:42) that ticks up every second, with "seconds focused" underneath. Below it is a "Leave page" button, and a small note reads "ngOnInit: timer started." Tap Leave page and the component is destroyed, `ngOnDestroy` clears the interval, and the console logs "ngOnDestroy: timer stopped" instead of the timer quietly running forever.
+The card shows "Ada's study session" with a big number that goes up by one every second and "seconds focused" under it. In the mockup the app around it adds a red "Focus Timer" header and a "Leave page" button, and a note shows the console message "ngOnInit: timer started." Leave the page and the component is destroyed. `ngOnDestroy` clears the interval and logs "ngOnDestroy: timer stopped", so the timer doesn't keep running in the background.
 
 ![Focus timer started in ngOnInit](../images/2026-10-26-lifecycle-hooks.jpg)
